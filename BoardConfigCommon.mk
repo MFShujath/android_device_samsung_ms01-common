@@ -40,11 +40,11 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 
 # Camera
-TARGET_PROVIDES_CAMERA_HAL := true
+#TARGET_PROVIDES_CAMERA_HAL := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
-BOARD_GLOBAL_CFLAGS += -DMETADATA_CAMERA_SOURCE
+
+# Workaround to avoid issues with legacy liblights on QCOM platforms
+TARGET_PROVIDES_LIBLIGHT := true
 
 # Charger
 BOARD_BATTERY_DEVICE_NAME := "battery"
@@ -106,7 +106,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
  
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
