@@ -42,12 +42,9 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8226 \
-    libboringssl-compat \
-    libstlport \
-    libxml2 \
     Snap \
-    Camera2
+    libmm-qcamera \
+    camera.msm8226
 
 # CRDA
 PRODUCT_PACKAGES += \
