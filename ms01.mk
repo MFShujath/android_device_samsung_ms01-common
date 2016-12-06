@@ -44,6 +44,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap \
     libmm-qcamera \
+    libbson \
     camera.msm8226
 
 # CRDA
