@@ -22,19 +22,17 @@ TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 # Architecture
 TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
 TARGET_CPU_VARIANT := krait
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/msm8226-common/include
 
 # Audio
 AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
-BOARD_USES_ALSA_AUDIO := true
-
-# GPS		
-TARGET_GPS_HAL_PATH := $(VENDOR_PATH)/gps		
+BOARD_USES_ALSA_AUDIO := true		
  
 # Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/msm8226-common/bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
-BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
@@ -95,15 +93,9 @@ TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := false
 
-# Basic dexpreopt
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-    endif
-  endif
-endif
+# Dex
+WITH_DEXPREOPT := false
+DISABLE_DEXPREOPT := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

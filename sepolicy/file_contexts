@@ -2,8 +2,8 @@
 /efs/bluetooth/bt_addr                                        u:object_r:bluetooth_efs_file:s0
 
 # Camera
-/data/cam_socket.*                                            u:object_r:camera_socket:s0
-/sys/devices/virtual/camera(/.*)?                             u:object_r:sysfs_camera:s0
+/sys/devices/virtual/camera(/.*)?       u:object_r:sysfs_camera:s0
+/data/cam_socket.*                      u:object_r:camera_socket:s0
 
 # CMHW
 /sys/devices/virtual/timed_output/vibrator(/.*)?              u:object_r:sysfs_vibeamp:s0
@@ -20,9 +20,6 @@
 /data/validity(/.*)?                                    u:object_r:vcs_data_file:s0
 /dev/validity(/.*)?                                     u:object_r:vcs_device:s0
 /dev/vfsspi                                             u:object_r:vcs_device:s0
-
-# NFC
-/dev/pn547                                                    u:object_r:nfc_device:s0
 
 # Sensors
 /dev/alps_io                                                  u:object_r:io_device:s0
