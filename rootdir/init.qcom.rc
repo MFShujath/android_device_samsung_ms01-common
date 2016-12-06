@@ -30,7 +30,6 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
-    export LD_SHIM_LIBS /system/lib/hw/camera.vendor.msm8226.so|libboringssl-compat.so:/system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so:/system/lib/libcrypto.so|libboringssl-compat.so:/system/lib/libril.so|libril_shim.so
 
     mount debugfs debugfs /sys/kernel/debug
 
@@ -388,6 +387,11 @@ on boot
     chown system radio /sys/class/camera/flash/rear_flash
     chown system radio /sys/class/camera/front/front_camfw
     chown system radio /sys/class/camera/front/front_camtype
+
+    # camera
+    mkdir /data/misc/camera 0770 camera camera
+    start qcamerasvr
+    mkdir /data/camera 0770 media camera
 
     # Torch
     chown system system /sys/class/leds/led:flash_torch/brightness
