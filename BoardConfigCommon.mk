@@ -91,10 +91,6 @@ TARGET_SYSTEM_PROP := $(VENDOR_PATH)/system.prop
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := false
 
-# Dex
-WITH_DEXPREOPT := false
-DISABLE_DEXPREOPT := true
-
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
  
