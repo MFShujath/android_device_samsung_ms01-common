@@ -42,9 +42,6 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 #TARGET_PROVIDES_CAMERA_HAL := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# Workaround to avoid issues with legacy liblights on QCOM platforms
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Charger
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
@@ -99,7 +96,7 @@ WITH_DEXPREOPT := false
 DISABLE_DEXPREOPT := true
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+-include device/qcom/sepolicy/sepolicy.mk
  
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
